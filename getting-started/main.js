@@ -1,6 +1,6 @@
 "use strict"
 
-const videoElement = document.querySelector('video#localVideo');
+const videoElement = document.querySelector('div#local video');
 const constrains = {
 	'video': true,
 	'audio': true

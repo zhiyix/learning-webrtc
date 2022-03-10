@@ -2,10 +2,82 @@
 <html>
 	<head>
 		<title></title>
+		<style type="text/css">
+			div.container {
+				margin: 0 auto 0 auto;
+				max-width: 60em;
+				padding: 1em 1.5em 1.3em 1.5em;
+			}
+			div.buttons {
+				border-bottom: 1px solid #eee;
+				margin: 1em 0 1em 0;
+				padding: 0 0 1em 0;
+			}
+			div.preview {
+				border-bottom: 1px solid #eee;
+				margin: 0 0 1em 0;
+				padding: 0 0 0.5em 0;
+			}
+			div.preview > div {
+				display: inline-block;
+				vertical-align: top;
+				width: calc(50% - 12px);
+			}
+			video {
+				background: #222;
+				margin: 0 0 20px 0;
+				--width: 100%;
+				width: var(--width);
+				height: calc(var(--width) * 0.45);
+			}
+			textarea {
+				color: #444;
+				font-size: 0.9em;
+				font-weight: 300;
+				height: 7em;
+				padding: 5px;
+				width: calc(100% - 10px);
+			}
+			button {
+				background-color: #d84a38;
+				border: none;
+				border-radius: 2px;
+				color: white;
+				font-family: 'Roboto', sans-serif;
+				font-size: 0.8em;
+				margin: 0 0 1em 0;
+				padding: 0.5em 0.7em 0.6em 0.7em;
+			}
+		</style>
 	</head>
 	<body>
-		<div>
-			<video id="localVideo" autoplay playinline controls="false"></video>
+		<div class="container">
+			<div class="buttons">
+				<button id="getMedia">Get media</button>
+				<button id="createPeerConnection" disabled>Create peer connection</button>
+				<button id="createOffer" disabled>Create offer</button>
+				<button id="setOffer" disabled>Set offer</button>
+				<button id="createAnswer" disabled>Create answer</button>
+				<button id="setAnswer" disabled>Set answer</button>
+				<button id="hangup" disabled>Hang up</button>
+			</div>
+			
+			<div class="preview">
+				<div id="local">
+					<h2>Local</h2>
+					<video playsinline autoplay muted></video>
+					<h2>Offer SDP</h2>
+					<textarea></textarea>
+					<br>
+					<br>
+				</div>
+				<div id="remote">
+					<h2>Remote</h2>
+					<video playsinline autoplay></video>
+					<h2>Answer SDP</h2>
+					<textarea></textarea>
+				</div>
+			</div>
 		</div>
 	</body>
 	<script src="main.js"></script>

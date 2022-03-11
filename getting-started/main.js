@@ -54,6 +54,11 @@ async function init() {
       try {
         // eslint-disable-next-line no-unused-vars
         const ignore = remotePeerConnection.addIceCandidate(e.candidate);
+        if (e.candidate) {
+          console.log('id: ', e.candidate.sdpMid);
+          console.log('label: ', e.candidate.sdpMLineIndex);
+          console.log('candidate: ', e.candidate.candidate);
+        }
         console.log('AddIceCandidate success.');
       } catch (e) {
         console.log(`Failed to add Ice Candidate: ${e.toString()}`);
@@ -81,6 +86,11 @@ async function init() {
       try {
         // eslint-disable-next-line no-unused-vars
         const ignore = localPeerConnection.addIceCandidate(e.candidate);
+        if (e.candidate) {
+          console.log('id: ', e.candidate.sdpMid);
+          console.log('label: ', e.candidate.sdpMLineIndex);
+          console.log('candidate: ', e.candidate.candidate);
+        }
         console.log('AddIceCandidate success.');
       } catch (e) {
         console.log(`Failed to add Ice Candidate: ${e.toString()}`);

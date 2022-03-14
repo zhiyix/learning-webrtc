@@ -22,7 +22,7 @@ app.get("/client2", function (req, res, next) {
     res.sendFile(__dirname + "/views/client2.html");
 });
 
-server.listen(3030); //express 监听 8080 端口，因为本机80端口已被暂用
+server.listen(3030, "0.0.0.0"); //express 监听 8080 端口，因为本机80端口已被暂用
 
 // 每个客户端socket连接时都会触发 connection 事件
 io.on("connection", function (socket) {

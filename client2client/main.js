@@ -13,11 +13,12 @@ async function init() {
 
 	const constrains = {
 		'video': true,
-		'audio': true
+		'audio': false
 	}
 
 	// 查询媒体设备
 	function getConnectedDevices(type, callback) {
+		console.log(navigator.mediaDevices)
 		navigator.mediaDevices.enumerateDevices()
 			.then(devices => {
 				const filterd = devices.filter(device => device.kind === type);

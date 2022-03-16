@@ -218,7 +218,7 @@ async function init() {
 		localPeerConnection = null;
 	}
 
-	let socket = io('https://192.168.50.57');
+	let socket = io('https://192.168.233.156');
 
 	let interval = setInterval(() => {
 		socket.emit('random', Math.random());

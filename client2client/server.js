@@ -15,19 +15,14 @@ app.use(serveIndex('./public'));
 app.use(express.static('./public'));
 
 var options = {
-	key : fs.readFileSync('./cert/1557605_www.learningrtc.cn.key'),
-	cert: fs.readFileSync('./cert/1557605_www.learningrtc.cn.pem')
+	key : fs.readFileSync(__dirname + '/cert/1557605_www.learningrtc.cn.key'),
+	cert: fs.readFileSync(__dirname + '/cert/1557605_www.learningrtc.cn.pem')
 }
 
 //http server
 var http_server = http.createServer(app);
 //https server
 var https_server = https.createServer(options, app);
-
-http_server.listen(80, '0.0.0.0');
-
-https_server.listen(443, '0.0.0.0');
-
 
 // 客户端 1 的访问地址
 app.get("/client1", function (req, res, next) {
@@ -114,3 +109,8 @@ ios.on("connection", function (socket) {
         }
     });
 });
+
+http_server.listen(80, '0.0.0.0');
+
+https_server.listen(443, '0.0.0.0');
+
